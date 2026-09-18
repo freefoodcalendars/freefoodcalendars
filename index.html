@@ -111,6 +111,14 @@ input[type=email].ok{border-color:var(--olive)}
 .msg h3{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:30px;line-height:1;letter-spacing:.03em}
 .msg p{font-size:17px;margin-top:10px;line-height:1.5}
 .done{background:var(--corn)}
+.next{margin:16px 0 0;padding-left:0;list-style:none;counter-reset:n}
+.next li{position:relative;padding-left:34px;margin-top:11px;font-size:16.5px;
+  line-height:1.45;color:#26301A;counter-increment:n}
+.next li::before{content:counter(n);position:absolute;left:0;top:-1px;
+  font-family:Khand;font-weight:700;font-size:21px;line-height:1.15;
+  color:var(--ink);opacity:.55;font-variant-numeric:tabular-nums}
+.next b{font-weight:600}
+.nudge{font-size:14.5px;margin-top:16px;color:#4A5433}
 .done h3{color:var(--ink)}
 .done p{color:#26301A}
 .bad{background:#FFF6F4;border:2px solid var(--tomato);padding:16px 18px}
@@ -199,8 +207,18 @@ footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
       <button id="submit">Add calendars</button>
 
       <div class="msg done hide" id="done">
-        <h3>You're set.</h3>
+        <h3>Check your email.</h3>
         <p id="donetext"></p>
+        <ol class="next">
+          <li>Open the email from Google. Subject line starts with
+            <b>&ldquo;Free Food Calendars has shared a calendar&rdquo;</b>.</li>
+          <li>Click <b>Add this calendar</b> in the email.
+            <span id="eachone">Do this for each email.</span></li>
+          <li>It now shows in Google Calendar under
+            <b>Other calendars</b>, with every date, address and set of hours.</li>
+        </ol>
+        <p class="nudge">Nothing in your inbox after a few minutes? Check spam
+          and promotions.</p>
       </div>
       <div class="bad hide" id="sendfail" style="margin-top:24px">
         <h3>Not sent</h3>
@@ -422,10 +440,11 @@ $("submit").onclick = function () {
       sending = false;
       if (out && out.status === "ok") {
         var n = (out.shared && out.shared.length) || picked.length;
-        $("donetext").textContent =
-          "Open Google Calendar and look under \u201cOther calendars\u201d. Your " +
-          n + (n === 1 ? " town is" : " towns are") +
-          " there with every date, address and set of hours.";
+        $("donetext").textContent = n === 1
+          ? "Google just emailed you an invitation for your town. One last step:"
+          : "Google just emailed you " + n +
+            " invitations, one per town. One last step:";
+        show($("eachone"), n > 1);
         show($("done"), true);
         show($("submit"), false);
       } else {
