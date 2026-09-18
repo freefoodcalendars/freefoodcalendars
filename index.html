@@ -352,16 +352,20 @@ function chooseRegion(name) {
 }
 
 /* ---------- step 3 ---------- */
+function townName(c) { return typeof c === "string" ? c : c.n; }
+function townKey(c)  { return typeof c === "string" ? c : c.k; }
+
 function renderTowns() {
   var box = $("towns"); box.innerHTML = "";
-  regionObj().cities.forEach(function (city) {
+  regionObj().cities.forEach(function (c) {
+    var key = townKey(c);
     var b = document.createElement("button");
     b.className = "town";
-    b.textContent = city;
-    b.setAttribute("aria-pressed", picked.indexOf(city) > -1);
+    b.textContent = townName(c);
+    b.setAttribute("aria-pressed", picked.indexOf(key) > -1);
     b.onclick = function () {
-      var at = picked.indexOf(city);
-      if (at > -1) picked.splice(at, 1); else picked.push(city);
+      var at = picked.indexOf(key);
+      if (at > -1) picked.splice(at, 1); else picked.push(key);
       b.setAttribute("aria-pressed", at === -1);
       if (at === -1) {
         b.classList.remove("stamp");
@@ -377,8 +381,8 @@ function renderTowns() {
 }
 
 $("allbtn").onclick = function () {
-  var all = regionObj().cities;
-  picked = picked.length === all.length ? [] : all.slice();
+  var all = regionObj().cities.map(townKey);
+  picked = picked.length === all.length ? [] : all;
   renderTowns();
   clearMessages();
   afterPick();
