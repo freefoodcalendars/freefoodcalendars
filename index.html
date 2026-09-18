@@ -210,9 +210,9 @@ footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
         <h3>Check your email.</h3>
         <p id="donetext"></p>
         <ol class="next">
-          <li>Open the email from Google. Subject line starts with
-            <b>&ldquo;Free Food Calendars has shared a calendar&rdquo;</b>.</li>
-          <li>Click <b>Add this calendar</b> in the email.
+          <li>Open the email from <b>Free Food Calendars</b>. The subject says
+            <b>&ldquo;Accept your invitation to join shared calendar&rdquo;</b>.</li>
+          <li>Click the <b>accept</b> link in the email.
             <span id="eachone">Do this for each email.</span></li>
           <li>It now shows in Google Calendar under
             <b>Other calendars</b>, with every date, address and set of hours.</li>
@@ -441,8 +441,8 @@ $("submit").onclick = function () {
       if (out && out.status === "ok") {
         var n = (out.shared && out.shared.length) || picked.length;
         $("donetext").textContent = n === 1
-          ? "Google just emailed you an invitation for your town. One last step:"
-          : "Google just emailed you " + n +
+          ? "You have been sent an invitation for your town. One last step:"
+          : "You have been sent " + n +
             " invitations, one per town. One last step:";
         show($("eachone"), n > 1);
         show($("done"), true);
