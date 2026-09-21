@@ -7,11 +7,11 @@
 <meta name="description" content="Free walk-in and drive-thru food distributions, added straight to your Google Calendar. No registration needed.">
 <meta property="og:title" content="Free Food Calendars">
 <meta property="og:description" content="Pick the towns near you. Every pantry, mobile drop and drive-thru in those towns goes straight onto your phone's calendar.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://script.google.com;">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
 
- 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -24,15 +24,12 @@ body{background:var(--ink);font-family:Hind,-apple-system,BlinkMacSystemFont,"Se
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
 @media(min-width:640px){.wrap{padding:0 32px}}
-
-/* ---- wide-screen side rails: crate-label stencil marks ---- */
 .rails{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
 @media(min-width:1080px){.rails{display:block}}
 .rail{position:absolute;top:0;bottom:0;width:calc((100% - 760px) / 2);
  display:flex;align-items:center;justify-content:center}
 .rail.l{left:0}
 .rail.r{right:0}
-/* the printed edge of the crate */
 .rail::before{content:"";position:absolute;top:0;bottom:0;width:2px;
  background:var(--olive);opacity:.45}
 .rail.l::before{right:0}
@@ -44,7 +41,6 @@ body{background:var(--ink);font-family:Hind,-apple-system,BlinkMacSystemFont,"Se
 .rail.l .stencil{transform:rotate(180deg)}
 .stencil::before,.stencil::after{content:"";flex-shrink:0;
  width:6px;height:6px;background:var(--corn);transform:rotate(45deg);opacity:.8}
-
 header{display:flex;align-items:center;justify-content:space-between;
  padding:20px 0;border-bottom:2px solid var(--olive)}
 .brand{display:flex;align-items:center;gap:10px}
@@ -54,14 +50,12 @@ header{display:flex;align-items:center;justify-content:space-between;
 #count{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;
  color:var(--olive-text);letter-spacing:.1em;font-variant-numeric:tabular-nums;display:none}
 @media(max-width:639px){#count{display:none!important}}
-
 .hero{padding:40px 0 36px}
 h1{font-family:Khand;font-weight:700;text-transform:uppercase;color:var(--corn);
  font-size:clamp(58px,15vw,118px);line-height:.82;letter-spacing:-.005em}
 .lede{margin-top:28px;font-size:18px;line-height:1.5;color:#D8E3B4;max-width:480px}
 .promise{margin-top:16px;font-family:Khand;font-weight:600;text-transform:uppercase;
  font-size:19px;color:var(--paper);letter-spacing:.05em}
-
 .card{background:var(--paper);padding:28px 22px 26px}
 section{margin-top:36px}
 section:first-child{margin-top:0}
@@ -71,7 +65,6 @@ section:first-child{margin-top:0}
 .num.on{color:var(--olive-deep)}
 h2{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:24px;
  line-height:1;color:var(--ink);letter-spacing:.06em}
-
 .choices{display:grid;gap:12px}
 .choices.two{grid-template-columns:1fr 1fr}
 button{font:inherit;cursor:pointer;border:none;background:none;text-align:left}
@@ -83,7 +76,6 @@ button{font:inherit;cursor:pointer;border:none;background:none;text-align:left}
  font-size:clamp(19px,5.2vw,26px);line-height:1.04;letter-spacing:.04em}
 .choice i{display:block;font-style:normal;font-size:14px;margin-top:4px;color:#6B6750}
 .choice[aria-pressed=true] i{color:#CFE08A}
-
 .townhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px}
 #allbtn{flex-shrink:0;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;
  line-height:1;color:var(--orange-deep);letter-spacing:.08em;text-decoration:underline;text-underline-offset:3px}
@@ -96,19 +88,16 @@ button{font:inherit;cursor:pointer;border:none;background:none;text-align:left}
 .town[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--corn)}
 .town.stamp{animation:stamp .22s cubic-bezier(.34,1.4,.64,1)}
 @keyframes stamp{0%{transform:none}45%{transform:scale(.965) rotate(-1.4deg)}100%{transform:none}}
-
 input[type=email]{width:100%;font:inherit;font-size:19px;padding:15px 18px;background:#fff;
  border:2px solid #C9C4A8;color:var(--ink);outline:none;border-radius:0;-webkit-appearance:none}
 input[type=email].ok{border-color:var(--olive)}
 .fine{font-size:14px;margin-top:10px;color:#6B6750}
-
 #submit{width:100%;background:#D9D5BE;color:#6E6A54;padding:19px 20px;cursor:not-allowed;
  margin-top:32px;transition:transform .1s;
  font-family:Khand;font-weight:700;text-transform:uppercase;font-size:27px;line-height:1;
  letter-spacing:.05em;font-variant-numeric:tabular-nums;text-align:center}
 #submit.ready{background:var(--ink);color:var(--corn);cursor:pointer}
 #submit.ready:active{transform:scale(.99)}
-
 .msg{margin-top:32px;padding:22px 20px}
 .msg h3{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:30px;line-height:1;letter-spacing:.03em}
 .msg p{font-size:17px;margin-top:10px;line-height:1.5}
@@ -130,14 +119,12 @@ input[type=email].ok{border-color:var(--olive)}
  font-family:Khand;font-weight:700;text-transform:uppercase;font-size:20px;letter-spacing:.05em}
 .loading{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:19px;
  color:#6B6750;letter-spacing:.06em}
-
 .tally{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding:36px 0;
  border-top:2px solid var(--olive);margin-top:40px}
 .tally b{display:block;font-family:Khand;font-weight:700;font-size:46px;line-height:1;
  color:var(--corn);font-variant-numeric:tabular-nums}
 .tally span{display:block;font-family:Khand;font-weight:600;text-transform:uppercase;
  font-size:15px;line-height:1;margin-top:4px;color:var(--olive-text);letter-spacing:.1em}
-
 footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
 .hide{display:none!important}
 </style>
@@ -243,7 +230,7 @@ change your towns any time.
 <div style="text-align:center; padding:24px 0 0; border-top:2px solid var(--olive); margin-top:24px;">
  <p style="margin:0; font-family:Khand; font-weight:600; text-transform:uppercase; font-size:15px; color:var(--olive-text); letter-spacing:.1em;">Follow us for state launch updates</p>
  <p style="margin:8px 0 0; font-family:Khand; font-weight:700; font-size:19px; letter-spacing:.06em;">
-  <a href="https://www.facebook.com/profile.php?id=61594658609178" style="color:var(--corn); text-decoration:none;">Facebook @FreeFoodCalendars</a>
+  <a href="https://www.facebook.com/FreeFoodCalendars" style="color:var(--corn); text-decoration:none;">Facebook @FreeFoodCalendars</a>
   <span style="color:var(--olive); margin:0 8px;">&middot;</span>
   <a href="https://www.instagram.com/FreeFoodCalendars" style="color:var(--corn); text-decoration:none;">Instagram @FreeFoodCalendars</a>
  </p>
@@ -261,7 +248,14 @@ var dir = [], stateName = null, regionName = null, picked = [], sending = false;
 
 function show(el, yes) { el.classList.toggle("hide", !yes); }
 function towns(n) { return n + (n === 1 ? " town" : " towns"); }
-function emailOk() { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("email").value.trim()); }
+
+/* --- SECURITY: Strict email validation --- */
+function emailOk() {
+ var v = $("email").value.trim();
+ if (v.length > 254 || v.length < 5) return false;
+ return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(v);
+}
+
 function stateObj() { for (var i=0;i<dir.length;i++) if (dir[i].state===stateName) return dir[i]; return null; }
 function regionObj() {
  var s = stateObj(); if (!s) return null;
@@ -307,7 +301,7 @@ function renderTally() {
  show($("tally"), townCount > 0);
 }
 
-/* ---------- step 1 ---------- */
+/* --- SECURITY: Safe DOM rendering (no innerHTML) --- */
 function renderStates() {
  var box = $("states"); box.innerHTML = "";
  dir.forEach(function (s) {
@@ -316,9 +310,12 @@ function renderStates() {
   var b = document.createElement("button");
   b.className = "choice";
   b.setAttribute("aria-pressed", s.state === stateName);
-  b.innerHTML = "<b></b><i></i>";
-  b.querySelector("b").textContent = s.state;
-  b.querySelector("i").textContent = towns(n);
+  var bEl = document.createElement("b");
+  var iEl = document.createElement("i");
+  bEl.textContent = s.state;
+  iEl.textContent = towns(n);
+  b.appendChild(bEl);
+  b.appendChild(iEl);
   b.onclick = function () { chooseState(s.state); };
   box.appendChild(b);
  });
@@ -329,7 +326,6 @@ function chooseState(name) {
  clearMessages();
  renderStates();
  $("n1").classList.add("on");
-
  var s = stateObj();
  var many = s && s.regions.length > 1;
  show($("s-region"), !!many);
@@ -339,16 +335,19 @@ function chooseState(name) {
  renumber();
 }
 
-/* ---------- step 2 ---------- */
+/* --- SECURITY: Safe DOM rendering (no innerHTML) --- */
 function renderRegions() {
  var box = $("regions"); box.innerHTML = "";
  stateObj().regions.forEach(function (r) {
   var b = document.createElement("button");
   b.className = "choice";
   b.setAttribute("aria-pressed", r.region === regionName);
-  b.innerHTML = "<b></b><i></i>";
-  b.querySelector("b").textContent = r.region;
-  b.querySelector("i").textContent = towns(r.cities.length);
+  var bEl = document.createElement("b");
+  var iEl = document.createElement("i");
+  bEl.textContent = r.region;
+  iEl.textContent = towns(r.cities.length);
+  b.appendChild(bEl);
+  b.appendChild(iEl);
   b.onclick = function () { chooseRegion(r.region); };
   box.appendChild(b);
  });
@@ -365,7 +364,6 @@ function chooseRegion(name) {
  renumber();
 }
 
-/* ---------- step 3 ---------- */
 function townName(c) { return typeof c === "string" ? c : c.n; }
 function townKey(c) { return typeof c === "string" ? c : c.k; }
 
@@ -414,7 +412,6 @@ function afterPick() {
  renumber();
 }
 
-/* ---------- step 4 + submit ---------- */
 $("email").oninput = function () {
  this.classList.toggle("ok", emailOk());
  $("n4").classList.toggle("on", emailOk());
@@ -444,8 +441,14 @@ function clearMessages() {
  show($("sendfail"), false);
 }
 
+/* --- SECURITY: Cap cities at 50 per request --- */
 $("submit").onclick = function () {
  if ($("submit").disabled) return;
+ if (picked.length > 50) {
+  $("failtext").textContent = "Please select 50 or fewer towns at a time.";
+  show($("sendfail"), true);
+  return;
+ }
  sending = true; renderSubmit();
 
  fetch(API_URL, {
