@@ -118,8 +118,9 @@ input[type=email].ok{border-color:var(--olive)}
  font-family:Khand;font-weight:700;text-transform:uppercase;font-size:20px;letter-spacing:.05em}
 .loading{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:19px;
  color:#6B6750;letter-spacing:.06em}
-.tally{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding:36px 0;
+.tally{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;padding:36px 0;
  border-top:2px solid var(--olive);margin-top:40px}
+@media(max-width:480px){.tally{grid-template-columns:1fr 1fr;gap:20px 16px}}
 .tally b{display:block;font-family:Khand;font-weight:700;font-size:46px;line-height:1;
  color:var(--corn);font-variant-numeric:tabular-nums}
 .tally span{display:block;font-family:Khand;font-weight:600;text-transform:uppercase;
@@ -220,6 +221,7 @@ footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
  <div><b id="t1">0</b><span id="t1l">towns</span></div>
  <div><b id="t2">0</b><span id="t2l">regions</span></div>
  <div><b id="t3">0</b><span id="t3l">states</span></div>
+ <div><b id="t4">0</b><span id="t4l">neighbors helped</span></div>
 </div>
 
 <footer>Hours change, and food runs out. Call ahead when a listing has a
@@ -248,7 +250,6 @@ var dir = [], stateName = null, regionName = null, picked = [], sending = false;
 function show(el, yes) { el.classList.toggle("hide", !yes); }
 function towns(n) { return n + (n === 1 ? " town" : " towns"); }
 
-/* --- SECURITY: Strict email validation --- */
 function emailOk() {
  var v = $("email").value.trim();
  if (v.length > 254 || v.length < 5) return false;
@@ -262,7 +263,6 @@ function regionObj() {
  return null;
 }
 
-/* ---------- load ---------- */
 function load() {
  show($("loading"), true); show($("loadfail"), false); show($("picker"), false);
  fetch(API_URL + "?action=getData")
@@ -274,6 +274,11 @@ function load() {
    show($("picker"), true);
    renderStates();
    renderTally();
+   // Show live subscriber count
+   if (out.subscribers !== undefined) {
+    $("t4").textContent = out.subscribers;
+    $("t4l").textContent = out.subscribers === 1 ? "neighbor helped" : "neighbors helped";
+   }
    if (dir.length === 1) chooseState(dir[0].state);
   })
   .catch(function () {
@@ -283,7 +288,6 @@ function load() {
 }
 $("retry").onclick = load;
 
-/* ---------- counts ---------- */
 function renderTally() {
  var townCount = 0, regions = 0;
  dir.forEach(function (s) {
@@ -300,7 +304,6 @@ function renderTally() {
  show($("tally"), townCount > 0);
 }
 
-/* --- SECURITY: Safe DOM rendering (no innerHTML) --- */
 function renderStates() {
  var box = $("states"); box.innerHTML = "";
  dir.forEach(function (s) {
@@ -334,7 +337,6 @@ function chooseState(name) {
  renumber();
 }
 
-/* --- SECURITY: Safe DOM rendering (no innerHTML) --- */
 function renderRegions() {
  var box = $("regions"); box.innerHTML = "";
  stateObj().regions.forEach(function (r) {
@@ -440,7 +442,6 @@ function clearMessages() {
  show($("sendfail"), false);
 }
 
-/* --- SECURITY: Cap cities at 50 per request --- */
 $("submit").onclick = function () {
  if ($("submit").disabled) return;
  if (picked.length > 50) {
