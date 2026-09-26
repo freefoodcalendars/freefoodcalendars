@@ -51,34 +51,54 @@ h1{font-family:Khand;font-weight:700;text-transform:uppercase;color:var(--corn);
 .lede{margin-top:28px;font-size:18px;line-height:1.5;color:#D8E3B4;max-width:480px}
 .promise{margin-top:16px;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:19px;color:var(--paper);letter-spacing:.05em}
 .card{background:var(--paper);padding:28px 22px 26px}
-section{margin-top:36px}section:first-child{margin-top:0}
 .step{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
-.num{font-family:Khand;font-weight:700;font-size:28px;line-height:1;color:#7C7761;font-variant-numeric:tabular-nums;letter-spacing:.02em}
-.num.on{color:var(--olive-deep)}
+.num{font-family:Khand;font-weight:700;font-size:28px;line-height:1;color:var(--olive-deep);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 h2{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:24px;line-height:1;color:var(--ink);letter-spacing:.06em}
-.choices{display:grid;gap:12px}.choices.two{grid-template-columns:1fr 1fr}
 button{font:inherit;cursor:pointer;border:none;background:none;text-align:left}
-.choice{background:transparent;border:2px solid #C9C4A8;color:var(--ink);padding:14px 20px;min-height:64px;transition:transform .1s}
-.choice:active{transform:scale(.98)}
-.choice[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--corn)}
-.choice b{display:block;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(19px,5.2vw,26px);line-height:1.04;letter-spacing:.04em}
-.choice i{display:block;font-style:normal;font-size:14px;margin-top:4px;color:#6B6750}
-.choice[aria-pressed=true] i{color:#CFE08A}
-.townhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px}
-#allbtn{flex-shrink:0;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;color:var(--orange-deep);letter-spacing:.08em;text-decoration:underline;text-underline-offset:3px}
+
+/* State buttons grid */
+.states{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.state-btn{background:transparent;border:2px solid #C9C4A8;color:var(--ink);padding:14px 20px;min-height:64px;transition:transform .1s;width:100%}
+.state-btn:active{transform:scale(.98)}
+.state-btn.active{background:var(--ink);border-color:var(--ink);color:var(--corn)}
+.state-btn b{display:block;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(19px,5.2vw,26px);line-height:1.04;letter-spacing:.04em}
+.state-btn i{display:block;font-style:normal;font-size:14px;margin-top:4px;color:#6B6750}
+.state-btn.active i{color:#CFE08A}
+
+/* Expanded panel (regions, towns, email) sits below state in grid */
+.expand{grid-column:1/-1;background:#EBE8D8;padding:20px;margin-top:-4px}
+
+/* Region buttons */
+.regions{display:grid;gap:10px}
+.region-btn{background:transparent;border:2px solid #C9C4A8;color:var(--ink);padding:12px 18px;width:100%;transition:transform .1s}
+.region-btn:active{transform:scale(.98)}
+.region-btn.active{background:var(--ink);border-color:var(--ink);color:var(--corn)}
+.region-btn b{display:block;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(17px,4.6vw,22px);line-height:1.04;letter-spacing:.04em}
+.region-btn i{display:block;font-style:normal;font-size:13px;margin-top:3px;color:#6B6750}
+.region-btn.active i{color:#CFE08A}
+
+/* Town buttons */
+.townhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:18px 0 12px}
+.townhead h3{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:20px;line-height:1;color:var(--ink);letter-spacing:.06em}
+.allbtn{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;color:var(--orange-deep);letter-spacing:.08em;text-decoration:underline;text-underline-offset:3px}
 .towns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(min-width:640px){.towns{grid-template-columns:1fr 1fr 1fr}}
-.town{background:var(--paper);border:2px solid #C9C4A8;padding:12px;min-height:52px;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(17px,4.6vw,19px);line-height:1.05;letter-spacing:.03em;color:var(--ink);transition:transform .12s}
+.town{background:var(--paper);border:2px solid #C9C4A8;padding:12px;min-height:52px;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(17px,4.6vw,19px);line-height:1.05;letter-spacing:.03em;color:var(--ink);transition:transform .12s;width:100%}
 .town[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--corn)}
 .town.stamp{animation:stamp .22s cubic-bezier(.34,1.4,.64,1)}
 @keyframes stamp{0%{transform:none}45%{transform:scale(.965) rotate(-1.4deg)}100%{transform:none}}
+
+/* Email section inline */
+.email-section{margin-top:18px;padding-top:16px;border-top:2px solid #C9C4A8}
+.email-section h3{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:20px;line-height:1;color:var(--ink);letter-spacing:.06em;margin-bottom:10px}
 input[type=email]{width:100%;font:inherit;font-size:19px;padding:15px 18px;background:#fff;border:2px solid #C9C4A8;color:var(--ink);outline:none;border-radius:0;-webkit-appearance:none}
 input[type=email].ok{border-color:var(--olive)}
 .fine{font-size:14px;margin-top:10px;color:#6B6750}
-#submit{width:100%;background:#D9D5BE;color:#6E6A54;padding:19px 20px;cursor:not-allowed;margin-top:32px;transition:transform .1s;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:27px;line-height:1;letter-spacing:.05em;font-variant-numeric:tabular-nums;text-align:center}
+#submit{width:100%;background:#D9D5BE;color:#6E6A54;padding:19px 20px;cursor:not-allowed;margin-top:18px;transition:transform .1s;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:27px;line-height:1;letter-spacing:.05em;font-variant-numeric:tabular-nums;text-align:center}
 #submit.ready{background:var(--ink);color:var(--corn);cursor:pointer}
 #submit.ready:active{transform:scale(.99)}
-.msg{margin-top:32px;padding:22px 20px}
+
+.msg{margin-top:20px;padding:22px 20px}
 .msg h3{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:30px;line-height:1;letter-spacing:.03em}
 .msg p{font-size:17px;margin-top:10px;line-height:1.5}
 .done{background:var(--corn)}
@@ -125,43 +145,11 @@ footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
 <button class="retry" id="retry">Try again</button>
 </div>
 <div class="hide" id="picker">
-<section id="s-state">
-<div class="step"><span class="num" id="n1">01</span><h2>Where are you?</h2></div>
-<div class="choices two" id="states"></div>
-</section>
-<section id="s-region" class="hide">
-<div class="step"><span class="num" id="n2">02</span><h2>Which area?</h2></div>
-<div class="choices" id="regions"></div>
-</section>
-<section id="s-town" class="hide">
-<div class="townhead">
-<div class="step" style="margin-bottom:0"><span class="num" id="n3">03</span><h2>Pick your towns</h2></div>
-<button id="allbtn">All</button>
-</div>
-<div class="towns" id="towns"></div>
-</section>
-<section id="s-email" class="hide">
-<div class="step"><span class="num" id="n4">04</span><h2>Your Gmail</h2></div>
-<input type="email" id="email" inputmode="email" autocomplete="email" placeholder="you@gmail.com">
-<p class="fine">Used once, to share the calendars with your Google account. Never stored, never sold, never passed on.</p>
-</section>
-<button id="submit">Add calendars</button>
-<div class="msg done hide" id="done">
-<h3>Check your email.</h3>
-<p id="donetext"></p>
-<ol class="next">
-<li>Open the email from <b>Free Food Calendars</b>. The subject says <b>&ldquo;Accept your invitation to join shared calendar&rdquo;</b>.</li>
-<li>Click the <b>accept</b> link in the email. <span id="eachone">Do this for each email.</span></li>
-<li>It now shows in Google Calendar under <b>Other calendars</b>, with every date, address and set of hours.</li>
-</ol>
-<p class="nudge">Nothing in your inbox after a few minutes? Check spam and promotions.</p>
-</div>
-<div class="bad hide" id="sendfail" style="margin-top:24px">
-<h3>Not sent</h3>
-<p id="failtext"></p>
+<div class="step"><span class="num">01</span><h2>Where are you?</h2></div>
+<div class="states" id="states"></div>
 </div>
 </div>
-</div>
+
 <div class="tally hide" id="tally">
 <div><b id="t1">0</b><span id="t1l">towns</span></div>
 <div><b id="t2">0</b><span id="t2l">regions</span></div>
@@ -181,51 +169,40 @@ footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
 </div>
 
 <script>
-/*
- * FREE FOOD CALENDARS - SPEED OPTIMIZED v3
- *
- * HOW IT WORKS:
- * 1. Check localStorage for cached API data
- * 2. If cached: show instantly, then refresh from API in background
- * 3. If not cached: show "Loading..." and wait for API (same as old site)
- * 4. Every successful API response is saved to localStorage
- *
- * This keeps the API as the source of truth (only shows states with real
- * calendars) while giving repeat visitors an instant experience.
- */
-
 var API_URL = "https://script.google.com/macros/s/AKfycbx4FGt-VxZaopx3btHN95-al957-RknIvE3snbI9DgfzJ9i2eIbMTsen8iXLSeZZwUM/exec";
 var CACHE_KEY = "ffc_dir";
-var CACHE_MAX_AGE = 3600000; /* 1 hour in ms */
+var CACHE_MAX_AGE = 3600000;
 
 var $ = function(id) { return document.getElementById(id); };
 var dir = [], stateName = null, regionName = null, picked = [], sending = false;
 
 function show(el, yes) { el.classList.toggle("hide", !yes); }
 function towns(n) { return n + (n === 1 ? " town" : " towns"); }
+function townName(c) { return typeof c === "string" ? c : c.n; }
+function townKey(c) { return typeof c === "string" ? c : c.k; }
 
 function emailOk() {
-  var v = $("email").value.trim();
+  var v = $("email") ? $("email").value.trim() : "";
   if (v.length > 254 || v.length < 5) return false;
   return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(v);
 }
 
-function stateObj() { for (var i=0;i<dir.length;i++) if (dir[i].state===stateName) return dir[i]; return null; }
-function regionObj() {
+function stateObj(name) {
+  var n = name || stateName;
+  for (var i=0;i<dir.length;i++) if (dir[i].state===n) return dir[i];
+  return null;
+}
+function regionObj(name) {
   var s = stateObj(); if (!s) return null;
-  for (var i=0;i<s.regions.length;i++) if (s.regions[i].region===regionName) return s.regions[i];
+  var n = name || regionName;
+  for (var i=0;i<s.regions.length;i++) if (s.regions[i].region===n) return s.regions[i];
   return null;
 }
 
-/* --- Cache helpers --- */
+/* Cache */
 function saveCache(data, subscribers) {
-  try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({
-      t: Date.now(), dir: data, subs: subscribers
-    }));
-  } catch(e) {}
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), dir: data, subs: subscribers })); } catch(e) {}
 }
-
 function loadCache() {
   try {
     var raw = localStorage.getItem(CACHE_KEY);
@@ -237,202 +214,270 @@ function loadCache() {
   } catch(e) { return null; }
 }
 
-/* --- Apply data to UI --- */
 function applyData(data, subscribers) {
   dir = data;
   show($("loading"), false);
   show($("picker"), true);
-  renderStates();
+  renderAll();
   renderTally();
   if (subscribers !== undefined) {
     $("t4").textContent = subscribers;
     $("t4l").textContent = subscribers === 1 ? "neighbor helped" : "neighbors helped";
   }
-  if (dir.length === 1) chooseState(dir[0].state);
 }
 
-/* --- Fetch from API --- */
 function fetchAPI(isBackground) {
   return fetch(API_URL + "?action=getData")
     .then(function(r) { return r.json(); })
     .then(function(out) {
-      if (!out || out.status !== "ok" || !out.directory) throw new Error("bad payload");
+      if (!out || out.status !== "ok" || !out.directory) throw new Error("bad");
       saveCache(out.directory, out.subscribers);
       applyData(out.directory, out.subscribers);
     })
     .catch(function() {
-      if (!isBackground) {
-        show($("loading"), false);
-        show($("loadfail"), true);
-      }
+      if (!isBackground) { show($("loading"), false); show($("loadfail"), true); }
     });
 }
 
-/* --- Initial load --- */
 function load() {
-  show($("loading"), true);
-  show($("loadfail"), false);
-  show($("picker"), false);
-
+  show($("loading"), true); show($("loadfail"), false); show($("picker"), false);
   var cached = loadCache();
-  if (cached) {
-    /* Instant render from cache */
-    applyData(cached.dir, cached.subs);
-    /* Background refresh */
-    fetchAPI(true);
-  } else {
-    /* No cache, wait for API */
-    fetchAPI(false);
-  }
+  if (cached) { applyData(cached.dir, cached.subs); fetchAPI(true); }
+  else fetchAPI(false);
 }
 $("retry").onclick = load;
 
 function renderTally() {
-  var townCount = 0, regions = 0;
-  dir.forEach(function(s) {
-    s.regions.forEach(function(r) { regions++; townCount += r.cities.length; });
-  });
-  $("t1").textContent = townCount;
-  $("t1l").textContent = townCount === 1 ? "town" : "towns";
-  $("t2").textContent = regions;
-  $("t2l").textContent = regions === 1 ? "region" : "regions";
+  var tc = 0, rc = 0;
+  dir.forEach(function(s) { s.regions.forEach(function(r) { rc++; tc += r.cities.length; }); });
+  $("t1").textContent = tc;
+  $("t1l").textContent = tc === 1 ? "town" : "towns";
+  $("t2").textContent = rc;
+  $("t2l").textContent = rc === 1 ? "region" : "regions";
   $("t3").textContent = dir.length;
   $("t3l").textContent = dir.length === 1 ? "state" : "states";
-  $("count").textContent = towns(townCount);
+  $("count").textContent = towns(tc);
   $("count").style.display = "block";
-  show($("tally"), townCount > 0);
+  show($("tally"), tc > 0);
 }
 
-function renderStates() {
-  var box = $("states"); box.innerHTML = "";
+/*
+ * ACCORDION RENDERER
+ * State buttons in a grid. Clicking one inserts an expand panel
+ * right below that button (spanning full grid width).
+ * Regions, towns, email, submit all live inside that panel.
+ */
+function renderAll() {
+  var box = $("states");
+  box.innerHTML = "";
+
   dir.forEach(function(s) {
     var n = 0;
     s.regions.forEach(function(r) { n += r.cities.length; });
-    var b = document.createElement("button");
-    b.className = "choice";
-    b.setAttribute("aria-pressed", s.state === stateName);
+
+    /* State button */
+    var btn = document.createElement("button");
+    btn.className = "state-btn" + (s.state === stateName ? " active" : "");
     var bEl = document.createElement("b");
     var iEl = document.createElement("i");
     bEl.textContent = s.state;
     iEl.textContent = towns(n);
-    b.appendChild(bEl);
-    b.appendChild(iEl);
-    b.onclick = function() { chooseState(s.state); };
-    box.appendChild(b);
+    btn.appendChild(bEl);
+    btn.appendChild(iEl);
+    btn.onclick = function() {
+      if (stateName === s.state) { stateName = null; regionName = null; picked = []; }
+      else { stateName = s.state; regionName = null; picked = []; }
+      renderAll();
+    };
+    box.appendChild(btn);
+
+    /* Expand panel (only for selected state) */
+    if (s.state === stateName) {
+      var panel = document.createElement("div");
+      panel.className = "expand";
+      buildPanel(panel, s);
+      box.appendChild(panel);
+      /* Scroll panel into view */
+      setTimeout(function() { panel.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 50);
+    }
   });
+
+  /* Auto-select if only 1 state */
+  if (dir.length === 1 && !stateName) {
+    stateName = dir[0].state;
+    renderAll();
+  }
 }
 
-function chooseState(name) {
-  stateName = name; regionName = null; picked = [];
-  clearMessages();
-  renderStates();
-  $("n1").classList.add("on");
-  var s = stateObj();
-  var many = s && s.regions.length > 1;
-  show($("s-region"), !!many);
-  if (many) renderRegions();
-  if (s && s.regions.length === 1) chooseRegion(s.regions[0].region);
-  else { show($("s-town"), false); show($("s-email"), false); renderSubmit(); }
-  renumber();
-}
+function buildPanel(panel, s) {
+  /* If multiple regions, show region picker */
+  if (s.regions.length > 1) {
+    var rLabel = document.createElement("div");
+    rLabel.style.cssText = "font-family:Khand;font-weight:700;text-transform:uppercase;font-size:18px;color:var(--ink);letter-spacing:.06em;margin-bottom:10px;";
+    rLabel.textContent = "Pick your area";
+    panel.appendChild(rLabel);
 
-function renderRegions() {
-  var box = $("regions"); box.innerHTML = "";
-  stateObj().regions.forEach(function(r) {
-    var b = document.createElement("button");
-    b.className = "choice";
-    b.setAttribute("aria-pressed", r.region === regionName);
-    var bEl = document.createElement("b");
-    var iEl = document.createElement("i");
-    bEl.textContent = r.region;
-    iEl.textContent = towns(r.cities.length);
-    b.appendChild(bEl);
-    b.appendChild(iEl);
-    b.onclick = function() { chooseRegion(r.region); };
-    box.appendChild(b);
-  });
-}
+    var rBox = document.createElement("div");
+    rBox.className = "regions";
+    s.regions.forEach(function(r) {
+      var rb = document.createElement("button");
+      rb.className = "region-btn" + (r.region === regionName ? " active" : "");
+      var bEl = document.createElement("b");
+      var iEl = document.createElement("i");
+      bEl.textContent = r.region;
+      iEl.textContent = towns(r.cities.length);
+      rb.appendChild(bEl);
+      rb.appendChild(iEl);
+      rb.onclick = function() {
+        if (regionName === r.region) { regionName = null; picked = []; }
+        else { regionName = r.region; picked = []; }
+        renderAll();
+      };
+      rBox.appendChild(rb);
+    });
+    panel.appendChild(rBox);
+  } else if (s.regions.length === 1) {
+    /* Single region: auto-select */
+    regionName = s.regions[0].region;
+  }
 
-function chooseRegion(name) {
-  regionName = name; picked = [];
-  clearMessages();
-  if (stateObj().regions.length > 1) { renderRegions(); $("n2").classList.add("on"); }
-  renderTowns();
-  show($("s-town"), true); show($("s-email"), false);
-  renderSubmit(); renumber();
-}
+  /* Towns (only if region selected) */
+  var reg = regionObj();
+  if (!reg) return;
 
-function townName(c) { return typeof c === "string" ? c : c.n; }
-function townKey(c) { return typeof c === "string" ? c : c.k; }
+  var thead = document.createElement("div");
+  thead.className = "townhead";
+  var th3 = document.createElement("h3");
+  th3.textContent = "Pick your towns";
+  var allBtn = document.createElement("button");
+  allBtn.className = "allbtn";
+  allBtn.textContent = picked.length === reg.cities.length ? "Clear" : "All";
+  allBtn.onclick = function() {
+    var all = reg.cities.map(townKey);
+    picked = picked.length === all.length ? [] : all;
+    renderAll();
+  };
+  thead.appendChild(th3);
+  thead.appendChild(allBtn);
+  panel.appendChild(thead);
 
-function renderTowns() {
-  var box = $("towns"); box.innerHTML = "";
-  regionObj().cities.forEach(function(c) {
+  var tBox = document.createElement("div");
+  tBox.className = "towns";
+  reg.cities.forEach(function(c) {
     var key = townKey(c);
-    var b = document.createElement("button");
-    b.className = "town";
-    b.textContent = townName(c);
-    b.setAttribute("aria-pressed", picked.indexOf(key) > -1);
-    b.onclick = function() {
+    var tb = document.createElement("button");
+    tb.className = "town";
+    tb.textContent = townName(c);
+    tb.setAttribute("aria-pressed", picked.indexOf(key) > -1);
+    tb.onclick = function() {
       var at = picked.indexOf(key);
       if (at > -1) picked.splice(at, 1); else picked.push(key);
-      b.setAttribute("aria-pressed", at === -1);
-      if (at === -1) { b.classList.remove("stamp"); void b.offsetWidth; b.classList.add("stamp"); }
-      clearMessages(); afterPick();
+      tb.setAttribute("aria-pressed", at === -1);
+      if (at === -1) { tb.classList.remove("stamp"); void tb.offsetWidth; tb.classList.add("stamp"); }
+      /* Update just the email/submit section without full re-render */
+      updateInlineEmail(panel, reg);
     };
-    box.appendChild(b);
+    tBox.appendChild(tb);
   });
-  syncAllBtn();
+  panel.appendChild(tBox);
+
+  /* Email + submit (inline) */
+  var emailWrap = document.createElement("div");
+  emailWrap.id = "email-wrap";
+  panel.appendChild(emailWrap);
+  updateInlineEmail(panel, reg);
 }
 
-$("allbtn").onclick = function() {
-  var all = regionObj().cities.map(townKey);
-  picked = picked.length === all.length ? [] : all;
-  renderTowns(); clearMessages(); afterPick();
-};
+function updateInlineEmail(panel, reg) {
+  var wrap = panel.querySelector("#email-wrap");
+  if (!wrap) return;
 
-function syncAllBtn() {
-  var all = regionObj() ? regionObj().cities : [];
-  $("allbtn").textContent = (all.length && picked.length === all.length) ? "Clear" : "All";
+  if (picked.length === 0) {
+    wrap.innerHTML = "";
+    /* Update all button text */
+    var ab = panel.querySelector(".allbtn");
+    if (ab) ab.textContent = "All";
+    return;
+  }
+
+  /* Update all button */
+  var ab = panel.querySelector(".allbtn");
+  if (ab) ab.textContent = picked.length === reg.cities.length ? "Clear" : "All";
+
+  /* Only rebuild email section if not already there */
+  if (!wrap.querySelector("input")) {
+    wrap.innerHTML = "";
+    var sec = document.createElement("div");
+    sec.className = "email-section";
+    var h3 = document.createElement("h3");
+    h3.textContent = "Your Gmail";
+    sec.appendChild(h3);
+
+    var inp = document.createElement("input");
+    inp.type = "email";
+    inp.id = "email";
+    inp.inputMode = "email";
+    inp.autocomplete = "email";
+    inp.placeholder = "you@gmail.com";
+    inp.oninput = function() {
+      inp.classList.toggle("ok", emailOk());
+      updateSubmitBtn();
+      clearMsg(panel);
+    };
+    sec.appendChild(inp);
+
+    var fine = document.createElement("p");
+    fine.className = "fine";
+    fine.textContent = "Used once, to share the calendars with your Google account. Never stored, never sold, never passed on.";
+    sec.appendChild(fine);
+
+    var sub = document.createElement("button");
+    sub.id = "submit";
+    sub.onclick = function() { doSubmit(panel); };
+    sec.appendChild(sub);
+
+    var msgDone = document.createElement("div");
+    msgDone.className = "msg done hide";
+    msgDone.id = "inline-done";
+    sec.appendChild(msgDone);
+
+    var msgFail = document.createElement("div");
+    msgFail.className = "bad hide";
+    msgFail.id = "inline-fail";
+    msgFail.style.marginTop = "16px";
+    sec.appendChild(msgFail);
+
+    wrap.appendChild(sec);
+  }
+
+  updateSubmitBtn();
 }
 
-function afterPick() {
-  syncAllBtn();
-  show($("s-email"), picked.length > 0);
-  renderSubmit(); renumber();
-}
-
-$("email").oninput = function() {
-  this.classList.toggle("ok", emailOk());
-  $("n4").classList.toggle("on", emailOk());
-  clearMessages(); renderSubmit();
-};
-
-function renderSubmit() {
+function updateSubmitBtn() {
   var b = $("submit");
+  if (!b) return;
   var ready = picked.length > 0 && emailOk() && !sending;
-  show(b, picked.length > 0 && $("done").classList.contains("hide"));
-  b.classList.toggle("ready", ready);
+  b.className = ready ? "ready" : "";
+  b.id = "submit";
+  b.style.cssText = "width:100%;padding:19px 20px;margin-top:18px;transition:transform .1s;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:27px;line-height:1;letter-spacing:.05em;font-variant-numeric:tabular-nums;text-align:center;cursor:" + (ready ? "pointer" : "not-allowed") + ";background:" + (ready ? "var(--ink)" : "#D9D5BE") + ";color:" + (ready ? "var(--corn)" : "#6E6A54") + ";border:none;";
   b.disabled = !ready;
   b.textContent = sending ? "Sharing\u2026" : "Add " + picked.length + (picked.length === 1 ? " calendar" : " calendars");
-  $("n3").classList.toggle("on", picked.length > 0);
 }
 
-function renumber() {
-  var many = stateObj() && stateObj().regions.length > 1;
-  $("n3").textContent = many ? "03" : "02";
-  $("n4").textContent = many ? "04" : "03";
+function clearMsg(panel) {
+  var d = panel.querySelector("#inline-done");
+  var f = panel.querySelector("#inline-fail");
+  if (d) d.classList.add("hide");
+  if (f) f.classList.add("hide");
 }
 
-function clearMessages() { show($("done"), false); show($("sendfail"), false); }
-
-$("submit").onclick = function() {
-  if ($("submit").disabled) return;
+function doSubmit(panel) {
+  if (!$("submit") || $("submit").disabled) return;
   if (picked.length > 50) {
-    $("failtext").textContent = "Please select 50 or fewer towns at a time.";
-    show($("sendfail"), true); return;
+    showFail(panel, "Please select 50 or fewer towns at a time.");
+    return;
   }
-  sending = true; renderSubmit();
+  sending = true; updateSubmitBtn();
   fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -443,22 +488,42 @@ $("submit").onclick = function() {
     sending = false;
     if (out && out.status === "ok") {
       var n = (out.shared && out.shared.length) || picked.length;
-      $("donetext").textContent = n === 1
-        ? "You have been sent an invitation for your town. One last step:"
-        : "You have been sent " + n + " invitations, one per town. One last step:";
-      show($("eachone"), n > 1);
-      show($("done"), true); show($("submit"), false);
+      var doneEl = panel.querySelector("#inline-done");
+      if (doneEl) {
+        doneEl.innerHTML = "<h3>Check your email.</h3>"
+          + "<p>" + (n === 1
+            ? "You have been sent an invitation for your town. One last step:"
+            : "You have been sent " + n + " invitations, one per town. One last step:")
+          + "</p>"
+          + '<ol class="next">'
+          + '<li>Open the email from <b>Free Food Calendars</b>. The subject says <b>&ldquo;Accept your invitation to join shared calendar&rdquo;</b>.</li>'
+          + '<li>Click the <b>accept</b> link in the email.' + (n > 1 ? ' Do this for each email.' : '') + '</li>'
+          + '<li>It now shows in Google Calendar under <b>Other calendars</b>, with every date, address and set of hours.</li>'
+          + '</ol>'
+          + '<p class="nudge">Nothing in your inbox after a few minutes? Check spam and promotions.</p>';
+        doneEl.classList.remove("hide");
+      }
+      $("submit").style.display = "none";
     } else {
-      $("failtext").textContent = (out && out.message) || "Something went wrong. Please try again.";
-      show($("sendfail"), true); renderSubmit();
+      showFail(panel, (out && out.message) || "Something went wrong. Please try again.");
+      updateSubmitBtn();
     }
   })
   .catch(function() {
     sending = false;
-    $("failtext").textContent = "Could not reach the server. Please try again.";
-    show($("sendfail"), true); renderSubmit();
+    showFail(panel, "Could not reach the server. Please try again.");
+    updateSubmitBtn();
   });
-};
+}
+
+function showFail(panel, msg) {
+  var f = panel.querySelector("#inline-fail");
+  if (f) {
+    f.innerHTML = '<h3 style="font-family:Khand;font-weight:700;text-transform:uppercase;font-size:19px;color:var(--tomato);letter-spacing:.05em">Not sent</h3>'
+      + '<p style="font-size:15.5px;margin-top:7px;color:#5A2620;line-height:1.45">' + msg + '</p>';
+    f.classList.remove("hide");
+  }
+}
 
 load();
 </script>
