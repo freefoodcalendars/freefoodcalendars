@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0VVLM33K6V"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0VVLM33K6V');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0VVLM33K6V');
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,87 +22,60 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
- --ink:#0F3D2E; --corn:#F9C53B; --olive:#8FA83C; --olive-text:#CAE67B;
- --olive-deep:#5F7A1E; --orange-deep:#9A5200; --tomato:#BF3626; --paper:#F4F1E4;
+--ink:#0F3D2E; --corn:#F9C53B; --olive:#8FA83C; --olive-text:#CAE67B;
+--olive-deep:#5F7A1E; --orange-deep:#9A5200; --tomato:#BF3626; --paper:#F4F1E4;
 }
 html{-webkit-text-size-adjust:100%}
 body{background:var(--ink);font-family:Hind,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
 .grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.055;mix-blend-mode:overlay;
- background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
 @media(min-width:640px){.wrap{padding:0 32px}}
 .rails{position:fixed;inset:0;z-index:1;pointer-events:none;display:none}
 @media(min-width:1080px){.rails{display:block}}
-.rail{position:absolute;top:0;bottom:0;width:calc((100% - 760px) / 2);
- display:flex;align-items:center;justify-content:center}
-.rail.l{left:0}
-.rail.r{right:0}
-.rail::before{content:"";position:absolute;top:0;bottom:0;width:2px;
- background:var(--olive);opacity:.45}
-.rail.l::before{right:0}
-.rail.r::before{left:0}
-.stencil{display:flex;align-items:center;gap:22px;
- font-family:Khand;font-weight:700;text-transform:uppercase;
- font-size:clamp(13px,1vw,16px);letter-spacing:.4em;color:var(--olive);
- opacity:.55;white-space:nowrap;writing-mode:vertical-rl}
+.rail{position:absolute;top:0;bottom:0;width:calc((100% - 760px) / 2);display:flex;align-items:center;justify-content:center}
+.rail.l{left:0}.rail.r{right:0}
+.rail::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--olive);opacity:.45}
+.rail.l::before{right:0}.rail.r::before{left:0}
+.stencil{display:flex;align-items:center;gap:22px;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(13px,1vw,16px);letter-spacing:.4em;color:var(--olive);opacity:.55;white-space:nowrap;writing-mode:vertical-rl}
 .rail.l .stencil{transform:rotate(180deg)}
-.stencil::before,.stencil::after{content:"";flex-shrink:0;
- width:6px;height:6px;background:var(--corn);transform:rotate(45deg);opacity:.8}
-header{display:flex;align-items:center;justify-content:space-between;
- padding:20px 0;border-bottom:2px solid var(--olive)}
+.stencil::before,.stencil::after{content:"";flex-shrink:0;width:6px;height:6px;background:var(--corn);transform:rotate(45deg);opacity:.8}
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:2px solid var(--olive)}
 .brand{display:flex;align-items:center;gap:10px}
 .diamond{width:13px;height:13px;background:var(--corn);transform:rotate(45deg)}
-.brandname{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:19px;
- line-height:1;color:var(--paper);letter-spacing:.14em}
-#count{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;
- color:var(--olive-text);letter-spacing:.1em;font-variant-numeric:tabular-nums;display:none}
+.brandname{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:19px;line-height:1;color:var(--paper);letter-spacing:.14em}
+#count{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;color:var(--olive-text);letter-spacing:.1em;font-variant-numeric:tabular-nums;display:none}
 @media(max-width:639px){#count{display:none!important}}
 .hero{padding:40px 0 36px}
-h1{font-family:Khand;font-weight:700;text-transform:uppercase;color:var(--corn);
- font-size:clamp(58px,15vw,118px);line-height:.82;letter-spacing:-.005em}
+h1{font-family:Khand;font-weight:700;text-transform:uppercase;color:var(--corn);font-size:clamp(58px,15vw,118px);line-height:.82;letter-spacing:-.005em}
 .lede{margin-top:28px;font-size:18px;line-height:1.5;color:#D8E3B4;max-width:480px}
-.promise{margin-top:16px;font-family:Khand;font-weight:600;text-transform:uppercase;
- font-size:19px;color:var(--paper);letter-spacing:.05em}
+.promise{margin-top:16px;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:19px;color:var(--paper);letter-spacing:.05em}
 .card{background:var(--paper);padding:28px 22px 26px}
-section{margin-top:36px}
-section:first-child{margin-top:0}
+section{margin-top:36px}section:first-child{margin-top:0}
 .step{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
-.num{font-family:Khand;font-weight:700;font-size:28px;line-height:1;color:#7C7761;
- font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.num{font-family:Khand;font-weight:700;font-size:28px;line-height:1;color:#7C7761;font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .num.on{color:var(--olive-deep)}
-h2{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:24px;
- line-height:1;color:var(--ink);letter-spacing:.06em}
-.choices{display:grid;gap:12px}
-.choices.two{grid-template-columns:1fr 1fr}
+h2{font-family:Khand;font-weight:700;text-transform:uppercase;font-size:24px;line-height:1;color:var(--ink);letter-spacing:.06em}
+.choices{display:grid;gap:12px}.choices.two{grid-template-columns:1fr 1fr}
 button{font:inherit;cursor:pointer;border:none;background:none;text-align:left}
-.choice{background:transparent;border:2px solid #C9C4A8;color:var(--ink);
- padding:14px 20px;min-height:64px;transition:transform .1s}
+.choice{background:transparent;border:2px solid #C9C4A8;color:var(--ink);padding:14px 20px;min-height:64px;transition:transform .1s}
 .choice:active{transform:scale(.98)}
 .choice[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--corn)}
-.choice b{display:block;font-family:Khand;font-weight:700;text-transform:uppercase;
- font-size:clamp(19px,5.2vw,26px);line-height:1.04;letter-spacing:.04em}
+.choice b{display:block;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(19px,5.2vw,26px);line-height:1.04;letter-spacing:.04em}
 .choice i{display:block;font-style:normal;font-size:14px;margin-top:4px;color:#6B6750}
 .choice[aria-pressed=true] i{color:#CFE08A}
 .townhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px}
-#allbtn{flex-shrink:0;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;
- line-height:1;color:var(--orange-deep);letter-spacing:.08em;text-decoration:underline;text-underline-offset:3px}
+#allbtn{flex-shrink:0;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;color:var(--orange-deep);letter-spacing:.08em;text-decoration:underline;text-underline-offset:3px}
 .towns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(min-width:640px){.towns{grid-template-columns:1fr 1fr 1fr}}
-.town{background:var(--paper);border:2px solid #C9C4A8;padding:12px;min-height:52px;
- font-family:Khand;font-weight:700;text-transform:uppercase;
- font-size:clamp(17px,4.6vw,19px);line-height:1.05;letter-spacing:.03em;color:var(--ink);
- transition:transform .12s}
+.town{background:var(--paper);border:2px solid #C9C4A8;padding:12px;min-height:52px;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(17px,4.6vw,19px);line-height:1.05;letter-spacing:.03em;color:var(--ink);transition:transform .12s}
 .town[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--corn)}
 .town.stamp{animation:stamp .22s cubic-bezier(.34,1.4,.64,1)}
 @keyframes stamp{0%{transform:none}45%{transform:scale(.965) rotate(-1.4deg)}100%{transform:none}}
-input[type=email]{width:100%;font:inherit;font-size:19px;padding:15px 18px;background:#fff;
- border:2px solid #C9C4A8;color:var(--ink);outline:none;border-radius:0;-webkit-appearance:none}
+input[type=email]{width:100%;font:inherit;font-size:19px;padding:15px 18px;background:#fff;border:2px solid #C9C4A8;color:var(--ink);outline:none;border-radius:0;-webkit-appearance:none}
 input[type=email].ok{border-color:var(--olive)}
 .fine{font-size:14px;margin-top:10px;color:#6B6750}
-#submit{width:100%;background:#D9D5BE;color:#6E6A54;padding:19px 20px;cursor:not-allowed;
- margin-top:32px;transition:transform .1s;
- font-family:Khand;font-weight:700;text-transform:uppercase;font-size:27px;line-height:1;
- letter-spacing:.05em;font-variant-numeric:tabular-nums;text-align:center}
+#submit{width:100%;background:#D9D5BE;color:#6E6A54;padding:19px 20px;cursor:not-allowed;margin-top:32px;transition:transform .1s;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:27px;line-height:1;letter-spacing:.05em;font-variant-numeric:tabular-nums;text-align:center}
 #submit.ready{background:var(--ink);color:var(--corn);cursor:pointer}
 #submit.ready:active{transform:scale(.99)}
 .msg{margin-top:32px;padding:22px 20px}
@@ -110,388 +83,384 @@ input[type=email].ok{border-color:var(--olive)}
 .msg p{font-size:17px;margin-top:10px;line-height:1.5}
 .done{background:var(--corn)}
 .next{margin:16px 0 0;padding-left:0;list-style:none;counter-reset:n}
-.next li{position:relative;padding-left:34px;margin-top:11px;font-size:16.5px;
- line-height:1.45;color:#26301A;counter-increment:n}
-.next li::before{content:counter(n);position:absolute;left:0;top:-1px;
- font-family:Khand;font-weight:700;font-size:21px;line-height:1.15;
- color:var(--ink);opacity:.55;font-variant-numeric:tabular-nums}
+.next li{position:relative;padding-left:34px;margin-top:11px;font-size:16.5px;line-height:1.45;color:#26301A;counter-increment:n}
+.next li::before{content:counter(n);position:absolute;left:0;top:-1px;font-family:Khand;font-weight:700;font-size:21px;line-height:1.15;color:var(--ink);opacity:.55;font-variant-numeric:tabular-nums}
 .next b{font-weight:600}
 .nudge{font-size:14.5px;margin-top:16px;color:#4A5433}
-.done h3{color:var(--ink)}
-.done p{color:#26301A}
+.done h3{color:var(--ink)}.done p{color:#26301A}
 .bad{background:#FFF6F4;border:2px solid var(--tomato);padding:16px 18px}
 .bad h3{font-size:19px;color:var(--tomato);letter-spacing:.05em}
 .bad p{font-size:15.5px;margin-top:7px;color:#5A2620;line-height:1.45}
-.retry{margin-top:16px;background:var(--ink);color:var(--corn);padding:11px 22px;
- font-family:Khand;font-weight:700;text-transform:uppercase;font-size:20px;letter-spacing:.05em}
-.loading{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:19px;
- color:#6B6750;letter-spacing:.06em}
-.tally{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;padding:36px 0;
- border-top:2px solid var(--olive);margin-top:40px}
+.retry{margin-top:16px;background:var(--ink);color:var(--corn);padding:11px 22px;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:20px;letter-spacing:.05em}
+.loading{font-family:Khand;font-weight:600;text-transform:uppercase;font-size:19px;color:#6B6750;letter-spacing:.06em}
+.tally{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;padding:36px 0;border-top:2px solid var(--olive);margin-top:40px}
 @media(max-width:480px){.tally{grid-template-columns:1fr 1fr;gap:20px 16px}}
-.tally b{display:block;font-family:Khand;font-weight:700;font-size:46px;line-height:1;
- color:var(--corn);font-variant-numeric:tabular-nums}
-.tally span{display:block;font-family:Khand;font-weight:600;text-transform:uppercase;
- font-size:15px;line-height:1;margin-top:4px;color:var(--olive-text);letter-spacing:.1em}
+.tally b{display:block;font-family:Khand;font-weight:700;font-size:46px;line-height:1;color:var(--corn);font-variant-numeric:tabular-nums}
+.tally span{display:block;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;margin-top:4px;color:var(--olive-text);letter-spacing:.1em}
 footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
 .hide{display:none!important}
 </style>
 </head>
 <body>
 <div class="grain"></div>
-
 <div class="rails" aria-hidden="true">
- <div class="rail l">
-  <span class="stencil">No registration &middot; First come, first served</span>
- </div>
- <div class="rail r">
-  <span class="stencil">Free food &middot; Every town &middot; Every month</span>
- </div>
+<div class="rail l"><span class="stencil">No registration &middot; First come, first served</span></div>
+<div class="rail r"><span class="stencil">Free food &middot; Every town &middot; Every month</span></div>
 </div>
-
 <div class="wrap">
-
 <header>
- <div class="brand"><div class="diamond"></div>
- <span class="brandname">Free Food Calendars</span></div>
- <span id="count"></span>
+<div class="brand"><div class="diamond"></div><span class="brandname">Free Food Calendars</span></div>
+<span id="count"></span>
 </header>
-
 <div class="hero">
- <h1>Free food,<br>on your<br>calendar.</h1>
- <p class="lede">Pick the towns near you. Every pantry, mobile drop and
-  drive-thru in those towns goes straight onto your phone&rsquo;s calendar, with
-  the address and the hours.</p>
- <p class="promise">No sign-up at the door &middot; Just bring a photo ID</p>
+<h1>Free food,<br>on your<br>calendar.</h1>
+<p class="lede">Pick the towns near you. Every pantry, mobile drop and drive-thru in those towns goes straight onto your phone&rsquo;s calendar, with the address and the hours.</p>
+<p class="promise">No sign-up at the door &middot; Just bring a photo ID</p>
 </div>
-
 <div class="card">
- <p class="loading" id="loading">Loading towns&hellip;</p>
-
- <div class="bad hide" id="loadfail">
-  <h3>Could not load the towns</h3>
-  <p>The connection did not go through. This is almost always temporary.</p>
-  <button class="retry" id="retry">Try again</button>
- </div>
-
- <div class="hide" id="picker">
-  <section id="s-state">
-   <div class="step"><span class="num" id="n1">01</span><h2>Where are you?</h2></div>
-   <div class="choices two" id="states"></div>
-  </section>
-
-  <section id="s-region" class="hide">
-   <div class="step"><span class="num" id="n2">02</span><h2>Which area?</h2></div>
-   <div class="choices" id="regions"></div>
-  </section>
-
-  <section id="s-town" class="hide">
-   <div class="townhead">
-    <div class="step" style="margin-bottom:0">
-     <span class="num" id="n3">03</span><h2>Pick your towns</h2></div>
-    <button id="allbtn">All</button>
-   </div>
-   <div class="towns" id="towns"></div>
-  </section>
-
-  <section id="s-email" class="hide">
-   <div class="step"><span class="num" id="n4">04</span><h2>Your Gmail</h2></div>
-   <input type="email" id="email" inputmode="email" autocomplete="email"
-    placeholder="you@gmail.com">
-   <p class="fine">Used once, to share the calendars with your Google
-    account. Never stored, never sold, never passed on.</p>
-  </section>
-
-  <button id="submit">Add calendars</button>
-
-  <div class="msg done hide" id="done">
-   <h3>Check your email.</h3>
-   <p id="donetext"></p>
-   <ol class="next">
-    <li>Open the email from <b>Free Food Calendars</b>. The subject says
-     <b>&ldquo;Accept your invitation to join shared calendar&rdquo;</b>.</li>
-    <li>Click the <b>accept</b> link in the email.
-     <span id="eachone">Do this for each email.</span></li>
-    <li>It now shows in Google Calendar under
-     <b>Other calendars</b>, with every date, address and set of hours.</li>
-   </ol>
-   <p class="nudge">Nothing in your inbox after a few minutes? Check spam
-    and promotions.</p>
-  </div>
-  <div class="bad hide" id="sendfail" style="margin-top:24px">
-   <h3>Not sent</h3>
-   <p id="failtext"></p>
-  </div>
- </div>
+<p class="loading" id="loading">Loading towns&hellip;</p>
+<div class="bad hide" id="loadfail">
+<h3>Could not load the towns</h3>
+<p>The connection did not go through. This is almost always temporary.</p>
+<button class="retry" id="retry">Try again</button>
 </div>
-
+<div class="hide" id="picker">
+<section id="s-state">
+<div class="step"><span class="num" id="n1">01</span><h2>Where are you?</h2></div>
+<div class="choices two" id="states"></div>
+</section>
+<section id="s-region" class="hide">
+<div class="step"><span class="num" id="n2">02</span><h2>Which area?</h2></div>
+<div class="choices" id="regions"></div>
+</section>
+<section id="s-town" class="hide">
+<div class="townhead">
+<div class="step" style="margin-bottom:0"><span class="num" id="n3">03</span><h2>Pick your towns</h2></div>
+<button id="allbtn">All</button>
+</div>
+<div class="towns" id="towns"></div>
+</section>
+<section id="s-email" class="hide">
+<div class="step"><span class="num" id="n4">04</span><h2>Your Gmail</h2></div>
+<input type="email" id="email" inputmode="email" autocomplete="email" placeholder="you@gmail.com">
+<p class="fine">Used once, to share the calendars with your Google account. Never stored, never sold, never passed on.</p>
+</section>
+<button id="submit">Add calendars</button>
+<div class="msg done hide" id="done">
+<h3>Check your email.</h3>
+<p id="donetext"></p>
+<ol class="next">
+<li>Open the email from <b>Free Food Calendars</b>. The subject says <b>&ldquo;Accept your invitation to join shared calendar&rdquo;</b>.</li>
+<li>Click the <b>accept</b> link in the email. <span id="eachone">Do this for each email.</span></li>
+<li>It now shows in Google Calendar under <b>Other calendars</b>, with every date, address and set of hours.</li>
+</ol>
+<p class="nudge">Nothing in your inbox after a few minutes? Check spam and promotions.</p>
+</div>
+<div class="bad hide" id="sendfail" style="margin-top:24px">
+<h3>Not sent</h3>
+<p id="failtext"></p>
+</div>
+</div>
+</div>
 <div class="tally hide" id="tally">
- <div><b id="t1">0</b><span id="t1l">towns</span></div>
- <div><b id="t2">0</b><span id="t2l">regions</span></div>
- <div><b id="t3">0</b><span id="t3l">states</span></div>
- <div><b id="t4">0</b><span id="t4l">neighbors helped</span></div>
+<div><b id="t1">0</b><span id="t1l">towns</span></div>
+<div><b id="t2">0</b><span id="t2l">regions</span></div>
+<div><b id="t3">0</b><span id="t3l">states</span></div>
+<div><b id="t4">0</b><span id="t4l">neighbors helped</span></div>
 </div>
-
-<footer>Hours change, and food runs out. Call ahead when a listing has a
-phone number. Adding a town is free, always, and you can come back and add more towns any time. We don't collect, store, or share your information. We just keep count of how many neighbors we've helped.
-
+<footer>Hours change, and food runs out. Call ahead when a listing has a phone number. Adding a town is free, always, and you can come back and add more towns any time. We don&#39;t collect, store, or share your information. We just keep count of how many neighbors we&#39;ve helped.
 <div style="text-align:center; padding:24px 0 0; border-top:2px solid var(--olive); margin-top:24px;">
- <p style="margin:0; font-family:Khand; font-weight:600; text-transform:uppercase; font-size:15px; color:var(--olive-text); letter-spacing:.1em;">Follow us for state launch updates</p>
- <p style="margin:8px 0 0; font-family:Khand; font-weight:700; font-size:19px; letter-spacing:.06em;">
-  <a href="https://www.facebook.com/FreeFoodCalendars" style="color:var(--corn); text-decoration:none;">Facebook @FreeFoodCalendars</a>
-  <span style="color:var(--olive); margin:0 8px;">&middot;</span>
-  <a href="https://www.instagram.com/FreeFoodCalendars" style="color:var(--corn); text-decoration:none;">Instagram @FreeFoodCalendars</a>
- </p>
+<p style="margin:0; font-family:Khand; font-weight:600; text-transform:uppercase; font-size:15px; color:var(--olive-text); letter-spacing:.1em;">Follow us for state launch updates</p>
+<p style="margin:8px 0 0; font-family:Khand; font-weight:700; font-size:19px; letter-spacing:.06em;">
+<a href="https://www.facebook.com/FreeFoodCalendars" style="color:var(--corn); text-decoration:none;">Facebook @FreeFoodCalendars</a>
+<span style="color:var(--olive); margin:0 8px;">&middot;</span>
+<a href="https://www.instagram.com/FreeFoodCalendars" style="color:var(--corn); text-decoration:none;">Instagram @FreeFoodCalendars</a>
+</p>
 </div>
-
 </footer>
-
 </div>
 
 <script>
-var API_URL = "https://script.google.com/macros/s/AKfycbx4FGt-VxZaopx3btHN95-al957-RknIvE3snbI9DgfzJ9i2eIbMTsen8iXLSeZZwUM/exec";
+/*
+ * FREE FOOD CALENDARS - SPEED OPTIMIZED v3
+ *
+ * HOW IT WORKS:
+ * 1. Check localStorage for cached API data
+ * 2. If cached: show instantly, then refresh from API in background
+ * 3. If not cached: show "Loading..." and wait for API (same as old site)
+ * 4. Every successful API response is saved to localStorage
+ *
+ * This keeps the API as the source of truth (only shows states with real
+ * calendars) while giving repeat visitors an instant experience.
+ */
 
-var $ = function (id) { return document.getElementById(id); };
+var API_URL = "https://script.google.com/macros/s/AKfycbx4FGt-VxZaopx3btHN95-al957-RknIvE3snbI9DgfzJ9i2eIbMTsen8iXLSeZZwUM/exec";
+var CACHE_KEY = "ffc_dir";
+var CACHE_MAX_AGE = 3600000; /* 1 hour in ms */
+
+var $ = function(id) { return document.getElementById(id); };
 var dir = [], stateName = null, regionName = null, picked = [], sending = false;
 
 function show(el, yes) { el.classList.toggle("hide", !yes); }
 function towns(n) { return n + (n === 1 ? " town" : " towns"); }
 
 function emailOk() {
- var v = $("email").value.trim();
- if (v.length > 254 || v.length < 5) return false;
- return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(v);
+  var v = $("email").value.trim();
+  if (v.length > 254 || v.length < 5) return false;
+  return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(v);
 }
 
 function stateObj() { for (var i=0;i<dir.length;i++) if (dir[i].state===stateName) return dir[i]; return null; }
 function regionObj() {
- var s = stateObj(); if (!s) return null;
- for (var i=0;i<s.regions.length;i++) if (s.regions[i].region===regionName) return s.regions[i];
- return null;
+  var s = stateObj(); if (!s) return null;
+  for (var i=0;i<s.regions.length;i++) if (s.regions[i].region===regionName) return s.regions[i];
+  return null;
 }
 
+/* --- Cache helpers --- */
+function saveCache(data, subscribers) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({
+      t: Date.now(), dir: data, subs: subscribers
+    }));
+  } catch(e) {}
+}
+
+function loadCache() {
+  try {
+    var raw = localStorage.getItem(CACHE_KEY);
+    if (!raw) return null;
+    var obj = JSON.parse(raw);
+    if (!obj || !obj.dir || !obj.t) return null;
+    if (Date.now() - obj.t > CACHE_MAX_AGE) return null;
+    return obj;
+  } catch(e) { return null; }
+}
+
+/* --- Apply data to UI --- */
+function applyData(data, subscribers) {
+  dir = data;
+  show($("loading"), false);
+  show($("picker"), true);
+  renderStates();
+  renderTally();
+  if (subscribers !== undefined) {
+    $("t4").textContent = subscribers;
+    $("t4l").textContent = subscribers === 1 ? "neighbor helped" : "neighbors helped";
+  }
+  if (dir.length === 1) chooseState(dir[0].state);
+}
+
+/* --- Fetch from API --- */
+function fetchAPI(isBackground) {
+  return fetch(API_URL + "?action=getData")
+    .then(function(r) { return r.json(); })
+    .then(function(out) {
+      if (!out || out.status !== "ok" || !out.directory) throw new Error("bad payload");
+      saveCache(out.directory, out.subscribers);
+      applyData(out.directory, out.subscribers);
+    })
+    .catch(function() {
+      if (!isBackground) {
+        show($("loading"), false);
+        show($("loadfail"), true);
+      }
+    });
+}
+
+/* --- Initial load --- */
 function load() {
- show($("loading"), true); show($("loadfail"), false); show($("picker"), false);
- fetch(API_URL + "?action=getData")
-  .then(function (r) { return r.json(); })
-  .then(function (out) {
-   if (!out || out.status !== "ok" || !out.directory) throw new Error("bad payload");
-   dir = out.directory;
-   show($("loading"), false);
-   show($("picker"), true);
-   renderStates();
-   renderTally();
-   // Show live subscriber count
-   if (out.subscribers !== undefined) {
-    $("t4").textContent = out.subscribers;
-    $("t4l").textContent = out.subscribers === 1 ? "neighbor helped" : "neighbors helped";
-   }
-   if (dir.length === 1) chooseState(dir[0].state);
-  })
-  .catch(function () {
-   show($("loading"), false);
-   show($("loadfail"), true);
-  });
+  show($("loading"), true);
+  show($("loadfail"), false);
+  show($("picker"), false);
+
+  var cached = loadCache();
+  if (cached) {
+    /* Instant render from cache */
+    applyData(cached.dir, cached.subs);
+    /* Background refresh */
+    fetchAPI(true);
+  } else {
+    /* No cache, wait for API */
+    fetchAPI(false);
+  }
 }
 $("retry").onclick = load;
 
 function renderTally() {
- var townCount = 0, regions = 0;
- dir.forEach(function (s) {
-  s.regions.forEach(function (r) { regions++; townCount += r.cities.length; });
- });
- $("t1").textContent = townCount;
- $("t1l").textContent = townCount === 1 ? "town" : "towns";
- $("t2").textContent = regions;
- $("t2l").textContent = regions === 1 ? "region" : "regions";
- $("t3").textContent = dir.length;
- $("t3l").textContent = dir.length === 1 ? "state" : "states";
- $("count").textContent = towns(townCount);
- $("count").style.display = "block";
- show($("tally"), townCount > 0);
+  var townCount = 0, regions = 0;
+  dir.forEach(function(s) {
+    s.regions.forEach(function(r) { regions++; townCount += r.cities.length; });
+  });
+  $("t1").textContent = townCount;
+  $("t1l").textContent = townCount === 1 ? "town" : "towns";
+  $("t2").textContent = regions;
+  $("t2l").textContent = regions === 1 ? "region" : "regions";
+  $("t3").textContent = dir.length;
+  $("t3l").textContent = dir.length === 1 ? "state" : "states";
+  $("count").textContent = towns(townCount);
+  $("count").style.display = "block";
+  show($("tally"), townCount > 0);
 }
 
 function renderStates() {
- var box = $("states"); box.innerHTML = "";
- dir.forEach(function (s) {
-  var n = 0;
-  s.regions.forEach(function (r) { n += r.cities.length; });
-  var b = document.createElement("button");
-  b.className = "choice";
-  b.setAttribute("aria-pressed", s.state === stateName);
-  var bEl = document.createElement("b");
-  var iEl = document.createElement("i");
-  bEl.textContent = s.state;
-  iEl.textContent = towns(n);
-  b.appendChild(bEl);
-  b.appendChild(iEl);
-  b.onclick = function () { chooseState(s.state); };
-  box.appendChild(b);
- });
+  var box = $("states"); box.innerHTML = "";
+  dir.forEach(function(s) {
+    var n = 0;
+    s.regions.forEach(function(r) { n += r.cities.length; });
+    var b = document.createElement("button");
+    b.className = "choice";
+    b.setAttribute("aria-pressed", s.state === stateName);
+    var bEl = document.createElement("b");
+    var iEl = document.createElement("i");
+    bEl.textContent = s.state;
+    iEl.textContent = towns(n);
+    b.appendChild(bEl);
+    b.appendChild(iEl);
+    b.onclick = function() { chooseState(s.state); };
+    box.appendChild(b);
+  });
 }
 
 function chooseState(name) {
- stateName = name; regionName = null; picked = [];
- clearMessages();
- renderStates();
- $("n1").classList.add("on");
- var s = stateObj();
- var many = s && s.regions.length > 1;
- show($("s-region"), !!many);
- if (many) renderRegions();
- if (s && s.regions.length === 1) chooseRegion(s.regions[0].region);
- else { show($("s-town"), false); show($("s-email"), false); renderSubmit(); }
- renumber();
+  stateName = name; regionName = null; picked = [];
+  clearMessages();
+  renderStates();
+  $("n1").classList.add("on");
+  var s = stateObj();
+  var many = s && s.regions.length > 1;
+  show($("s-region"), !!many);
+  if (many) renderRegions();
+  if (s && s.regions.length === 1) chooseRegion(s.regions[0].region);
+  else { show($("s-town"), false); show($("s-email"), false); renderSubmit(); }
+  renumber();
 }
 
 function renderRegions() {
- var box = $("regions"); box.innerHTML = "";
- stateObj().regions.forEach(function (r) {
-  var b = document.createElement("button");
-  b.className = "choice";
-  b.setAttribute("aria-pressed", r.region === regionName);
-  var bEl = document.createElement("b");
-  var iEl = document.createElement("i");
-  bEl.textContent = r.region;
-  iEl.textContent = towns(r.cities.length);
-  b.appendChild(bEl);
-  b.appendChild(iEl);
-  b.onclick = function () { chooseRegion(r.region); };
-  box.appendChild(b);
- });
+  var box = $("regions"); box.innerHTML = "";
+  stateObj().regions.forEach(function(r) {
+    var b = document.createElement("button");
+    b.className = "choice";
+    b.setAttribute("aria-pressed", r.region === regionName);
+    var bEl = document.createElement("b");
+    var iEl = document.createElement("i");
+    bEl.textContent = r.region;
+    iEl.textContent = towns(r.cities.length);
+    b.appendChild(bEl);
+    b.appendChild(iEl);
+    b.onclick = function() { chooseRegion(r.region); };
+    box.appendChild(b);
+  });
 }
 
 function chooseRegion(name) {
- regionName = name; picked = [];
- clearMessages();
- if (stateObj().regions.length > 1) { renderRegions(); $("n2").classList.add("on"); }
- renderTowns();
- show($("s-town"), true);
- show($("s-email"), false);
- renderSubmit();
- renumber();
+  regionName = name; picked = [];
+  clearMessages();
+  if (stateObj().regions.length > 1) { renderRegions(); $("n2").classList.add("on"); }
+  renderTowns();
+  show($("s-town"), true); show($("s-email"), false);
+  renderSubmit(); renumber();
 }
 
 function townName(c) { return typeof c === "string" ? c : c.n; }
 function townKey(c) { return typeof c === "string" ? c : c.k; }
 
 function renderTowns() {
- var box = $("towns"); box.innerHTML = "";
- regionObj().cities.forEach(function (c) {
-  var key = townKey(c);
-  var b = document.createElement("button");
-  b.className = "town";
-  b.textContent = townName(c);
-  b.setAttribute("aria-pressed", picked.indexOf(key) > -1);
-  b.onclick = function () {
-   var at = picked.indexOf(key);
-   if (at > -1) picked.splice(at, 1); else picked.push(key);
-   b.setAttribute("aria-pressed", at === -1);
-   if (at === -1) {
-    b.classList.remove("stamp");
-    void b.offsetWidth;
-    b.classList.add("stamp");
-   }
-   clearMessages();
-   afterPick();
-  };
-  box.appendChild(b);
- });
- syncAllBtn();
+  var box = $("towns"); box.innerHTML = "";
+  regionObj().cities.forEach(function(c) {
+    var key = townKey(c);
+    var b = document.createElement("button");
+    b.className = "town";
+    b.textContent = townName(c);
+    b.setAttribute("aria-pressed", picked.indexOf(key) > -1);
+    b.onclick = function() {
+      var at = picked.indexOf(key);
+      if (at > -1) picked.splice(at, 1); else picked.push(key);
+      b.setAttribute("aria-pressed", at === -1);
+      if (at === -1) { b.classList.remove("stamp"); void b.offsetWidth; b.classList.add("stamp"); }
+      clearMessages(); afterPick();
+    };
+    box.appendChild(b);
+  });
+  syncAllBtn();
 }
 
-$("allbtn").onclick = function () {
- var all = regionObj().cities.map(townKey);
- picked = picked.length === all.length ? [] : all;
- renderTowns();
- clearMessages();
- afterPick();
+$("allbtn").onclick = function() {
+  var all = regionObj().cities.map(townKey);
+  picked = picked.length === all.length ? [] : all;
+  renderTowns(); clearMessages(); afterPick();
 };
 
 function syncAllBtn() {
- var all = regionObj() ? regionObj().cities : [];
- $("allbtn").textContent = (all.length && picked.length === all.length) ? "Clear" : "All";
+  var all = regionObj() ? regionObj().cities : [];
+  $("allbtn").textContent = (all.length && picked.length === all.length) ? "Clear" : "All";
 }
 
 function afterPick() {
- syncAllBtn();
- show($("s-email"), picked.length > 0);
- renderSubmit();
- renumber();
+  syncAllBtn();
+  show($("s-email"), picked.length > 0);
+  renderSubmit(); renumber();
 }
 
-$("email").oninput = function () {
- this.classList.toggle("ok", emailOk());
- $("n4").classList.toggle("on", emailOk());
- clearMessages();
- renderSubmit();
+$("email").oninput = function() {
+  this.classList.toggle("ok", emailOk());
+  $("n4").classList.toggle("on", emailOk());
+  clearMessages(); renderSubmit();
 };
 
 function renderSubmit() {
- var b = $("submit");
- var ready = picked.length > 0 && emailOk() && !sending;
- show(b, picked.length > 0 && $("done").classList.contains("hide"));
- b.classList.toggle("ready", ready);
- b.disabled = !ready;
- b.textContent = sending ? "Sharing\u2026"
-  : "Add " + picked.length + (picked.length === 1 ? " calendar" : " calendars");
- $("n3").classList.toggle("on", picked.length > 0);
+  var b = $("submit");
+  var ready = picked.length > 0 && emailOk() && !sending;
+  show(b, picked.length > 0 && $("done").classList.contains("hide"));
+  b.classList.toggle("ready", ready);
+  b.disabled = !ready;
+  b.textContent = sending ? "Sharing\u2026" : "Add " + picked.length + (picked.length === 1 ? " calendar" : " calendars");
+  $("n3").classList.toggle("on", picked.length > 0);
 }
 
 function renumber() {
- var many = stateObj() && stateObj().regions.length > 1;
- $("n3").textContent = many ? "03" : "02";
- $("n4").textContent = many ? "04" : "03";
+  var many = stateObj() && stateObj().regions.length > 1;
+  $("n3").textContent = many ? "03" : "02";
+  $("n4").textContent = many ? "04" : "03";
 }
 
-function clearMessages() {
- show($("done"), false);
- show($("sendfail"), false);
-}
+function clearMessages() { show($("done"), false); show($("sendfail"), false); }
 
-$("submit").onclick = function () {
- if ($("submit").disabled) return;
- if (picked.length > 50) {
-  $("failtext").textContent = "Please select 50 or fewer towns at a time.";
-  show($("sendfail"), true);
-  return;
- }
- sending = true; renderSubmit();
-
- fetch(API_URL, {
-  method: "POST",
-  headers: { "Content-Type": "text/plain;charset=utf-8" },
-  body: JSON.stringify({ email: $("email").value.trim(), cities: picked })
- })
-  .then(function (r) { return r.json(); })
-  .then(function (out) {
-   sending = false;
-   if (out && out.status === "ok") {
-    var n = (out.shared && out.shared.length) || picked.length;
-    $("donetext").textContent = n === 1
-     ? "You have been sent an invitation for your town. One last step:"
-     : "You have been sent " + n +
-       " invitations, one per town. One last step:";
-    show($("eachone"), n > 1);
-    show($("done"), true);
-    show($("submit"), false);
-   } else {
-    $("failtext").textContent =
-     (out && out.message) || "Something went wrong. Please try again.";
-    show($("sendfail"), true);
-    renderSubmit();
-   }
+$("submit").onclick = function() {
+  if ($("submit").disabled) return;
+  if (picked.length > 50) {
+    $("failtext").textContent = "Please select 50 or fewer towns at a time.";
+    show($("sendfail"), true); return;
+  }
+  sending = true; renderSubmit();
+  fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ email: $("email").value.trim(), cities: picked })
   })
-  .catch(function () {
-   sending = false;
-   $("failtext").textContent = "Could not reach the server. Please try again.";
-   show($("sendfail"), true);
-   renderSubmit();
+  .then(function(r) { return r.json(); })
+  .then(function(out) {
+    sending = false;
+    if (out && out.status === "ok") {
+      var n = (out.shared && out.shared.length) || picked.length;
+      $("donetext").textContent = n === 1
+        ? "You have been sent an invitation for your town. One last step:"
+        : "You have been sent " + n + " invitations, one per town. One last step:";
+      show($("eachone"), n > 1);
+      show($("done"), true); show($("submit"), false);
+    } else {
+      $("failtext").textContent = (out && out.message) || "Something went wrong. Please try again.";
+      show($("sendfail"), true); renderSubmit();
+    }
+  })
+  .catch(function() {
+    sending = false;
+    $("failtext").textContent = "Could not reach the server. Please try again.";
+    show($("sendfail"), true); renderSubmit();
   });
 };
 
 load();
 </script>
-
 </body>
 </html>
