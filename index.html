@@ -19,6 +19,7 @@ gtag('config', 'G-0VVLM33K6V');
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&family=Hind:wght@400;500;600&display=swap">
 
+  
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -119,6 +120,18 @@ input[type=email].ok{border-color:var(--olive)}
 .tally span{display:block;font-family:Khand;font-weight:600;text-transform:uppercase;font-size:15px;line-height:1;margin-top:4px;color:var(--olive-text);letter-spacing:.1em}
 footer{padding-bottom:48px;font-size:14.5px;color:#CEE4B5;line-height:1.6}
 .hide{display:none!important}
+  /* Mobile overflow fix */
+body{overflow-x:clip}
+.states,.towns{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:640px){.towns{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.state-btn,.region-btn,.town{min-width:0;overflow-wrap:anywhere}
+@media(max-width:480px){
+  .card{padding:22px 14px}
+  .states{gap:8px}
+  .state-btn{padding:12px}
+  .state-btn b{font-size:clamp(16px,4.6vw,22px);letter-spacing:.02em}
+  .expand{padding:14px}
+}
 </style>
 </head>
 <body>
