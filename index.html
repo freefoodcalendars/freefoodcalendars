@@ -77,6 +77,8 @@ button{font:inherit;cursor:pointer;border:none;background:none;text-align:left}
 .region-btn b{display:block;font-family:Khand;font-weight:700;text-transform:uppercase;font-size:clamp(17px,4.6vw,22px);line-height:1.04;letter-spacing:.04em}
 .region-btn i{display:block;font-style:normal;font-size:13px;margin-top:3px;color:#6B6750}
 .region-btn.active i{color:#CFE08A}
+.region-towns{background:var(--paper);border:2px solid var(--ink);border-top:none;margin-top:-12px;padding:4px 14px 16px}
+.region-towns .townhead{margin-top:14px}
 
 /* Town buttons */
 .townhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:18px 0 12px}
@@ -187,7 +189,7 @@ var CACHE_KEY = "ffc_dir";
 var CACHE_MAX_AGE = 3600000;
 
 var $ = function(id) { return document.getElementById(id); };
-var dir = [], stateName = null, regionName = null, picked = [], sending = false;
+var dir = [], stateName = null, regionName = null, picked = [], sending = false, lastOpenedArea = null;
 
 function show(el, yes) { el.classList.toggle("hide", !yes); }
 function towns(n) { return n + (n === 1 ? " town" : " towns"); }
@@ -308,8 +310,8 @@ function renderAll() {
     if (s.state === stateName) {
       var panel = document.createElement("div");
       panel.className = "expand";
+      box.appendChild(panel); /* attach before building so the Add button label fills in */
       buildPanel(panel, s);
-      box.appendChild(panel);
       /* Scroll panel into view */
       setTimeout(function() { panel.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 50);
     }
@@ -323,7 +325,8 @@ function renderAll() {
 }
 
 function buildPanel(panel, s) {
-  /* If multiple regions, show region picker */
+  /* Multiple areas: the chosen area's towns open directly under that
+     area's button (accordion), not below the whole list of areas. */
   if (s.regions.length > 1) {
     var rLabel = document.createElement("div");
     rLabel.style.cssText = "font-family:Khand;font-weight:700;text-transform:uppercase;font-size:18px;color:var(--ink);letter-spacing:.06em;margin-bottom:10px;";
@@ -332,9 +335,13 @@ function buildPanel(panel, s) {
 
     var rBox = document.createElement("div");
     rBox.className = "regions";
+    panel.appendChild(rBox); /* attach first so the Gmail box can find its spot */
+    var openBtn = null;
     s.regions.forEach(function(r) {
+      var isOpen = r.region === regionName;
       var rb = document.createElement("button");
-      rb.className = "region-btn" + (r.region === regionName ? " active" : "");
+      rb.className = "region-btn" + (isOpen ? " active" : "");
+      rb.setAttribute("aria-expanded", isOpen ? "true" : "false");
       var bEl = document.createElement("b");
       var iEl = document.createElement("i");
       bEl.textContent = r.region;
@@ -347,17 +354,30 @@ function buildPanel(panel, s) {
         renderAll();
       };
       rBox.appendChild(rb);
+      if (isOpen) {
+        var sub = document.createElement("div");
+        sub.className = "region-towns";
+        rBox.appendChild(sub);
+        buildTowns(sub, panel, r);
+        openBtn = rb;
+      }
     });
-    panel.appendChild(rBox);
-  } else if (s.regions.length === 1) {
-    /* Single region: auto-select */
-    regionName = s.regions[0].region;
+    if (openBtn && lastOpenedArea !== regionName) {
+      lastOpenedArea = regionName;
+      setTimeout(function() { openBtn.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60);
+    }
+    if (!openBtn) lastOpenedArea = null;
+    return;
   }
 
-  /* Towns (only if region selected) */
+  /* Single area: auto-select and show towns right away */
+  if (s.regions.length === 1) regionName = s.regions[0].region;
   var reg = regionObj();
   if (!reg) return;
+  buildTowns(panel, panel, reg);
+}
 
+function buildTowns(box, panel, reg) {
   var thead = document.createElement("div");
   thead.className = "townhead";
   var th3 = document.createElement("h3");
@@ -372,7 +392,7 @@ function buildPanel(panel, s) {
   };
   thead.appendChild(th3);
   thead.appendChild(allBtn);
-  panel.appendChild(thead);
+  box.appendChild(thead);
 
   var tBox = document.createElement("div");
   tBox.className = "towns";
@@ -387,17 +407,16 @@ function buildPanel(panel, s) {
       if (at > -1) picked.splice(at, 1); else picked.push(key);
       tb.setAttribute("aria-pressed", at === -1);
       if (at === -1) { tb.classList.remove("stamp"); void tb.offsetWidth; tb.classList.add("stamp"); }
-      /* Update just the email/submit section without full re-render */
       updateInlineEmail(panel, reg);
     };
     tBox.appendChild(tb);
   });
-  panel.appendChild(tBox);
+  box.appendChild(tBox);
 
-  /* Email + submit (inline) */
+  /* Email + submit sit right under these towns */
   var emailWrap = document.createElement("div");
   emailWrap.id = "email-wrap";
-  panel.appendChild(emailWrap);
+  box.appendChild(emailWrap);
   updateInlineEmail(panel, reg);
 }
 
